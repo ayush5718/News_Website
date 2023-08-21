@@ -2,19 +2,20 @@ const API_KEY = "65e0afaa92ea49c299041d32a8e91eb5";
 const url = "https://newsapi.org/v2/everything?q=";
 
 const todayDate = new Date();
-const todayFormatted = todayDate.toLocaleString("en-US", {
+const TodayDate = todayDate.toLocaleString("en-US", {
     timeZone: "Asia/Jakarta"
-});
+
+})
+
 
 window.addEventListener("load", () => fetchNews(`India  news`));
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${encodeURIComponent(query)}&apiKey=${API_KEY}`);
+    const res = await fetch(`${url}${query}&apikey=${API_KEY}`);
     const data = await res.json();
     bindData(data.articles);
+
 }
-
-
 
 
 function bindData(articles) {
